@@ -2,6 +2,7 @@ import {createApi , fetchBaseQuery} from '@reduxjs/toolkit/query/react'
 export const shiftApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://sauravshift.vercel.app/'
+        // baseUrl:'http://localhost:5007'
     }),
     reducerPath:'shiftApi',
     endpoints:(builder)=>({

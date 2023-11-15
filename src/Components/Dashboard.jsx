@@ -27,7 +27,7 @@ const Dashboard = () => {
   const { vertical, horizontal, open } = state;
 
   //---------------RTK Query fetching----------------
-  const { data: shiftData, refetch: refetchData,isError } = useGetshiftDataQuery();
+  const { data: shiftData, refetch: refetchData,isError,isLoading } = useGetshiftDataQuery();
   const [deleteShiftData] = useDeleteShiftDataMutation();
   // console.log("data",shiftData);
 
@@ -122,12 +122,12 @@ const Dashboard = () => {
     <>
       <div className="page">
         <div className="head">
-          <Typography><h4>Shift Dashboard</h4></Typography>
+          <Typography><h4>Shifts Dashboard</h4></Typography>
         </div>
 
         <div className="body">
-          {isError && <> <p>Automation Server is not reachable !</p> <p>Please try again later</p> </>}
-
+          {isError && <> <p> Server is not reachable !</p> <p>Please try again later</p> </>}
+{isLoading? "Loading....":
           <MaterialReactTable
             className="table"
             columns={columns}
@@ -156,6 +156,7 @@ const Dashboard = () => {
               </Button>
             )}
           />
+              }
         </div>
            {/* alert snakbar start */}
            <Snackbar 
